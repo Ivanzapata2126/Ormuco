@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block page_content %}
+
+<h2 class="mt-3 m-2 fw-normal">Listado de instancias creadas</h2>
+<div class="row">
+    <div class="col pt-3">
+        <a class="btn btn-secondary m-2" href="/create">
+            Agregar nueva instancia
+        </a>
+    </div>
+</div>
+
+<table class="table">
+    <thead class="table">
+        <tr class="text-center">
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="text-center">
+            <td scope="row">1e6a0827-f4d3-4b3a-879c-0530824e2522</td>
+            <td>jesusFromPython</td>
+            <td>ACTIVE</td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

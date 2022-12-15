@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="page-header">
+    <h2 class="m-2 mt-3 fw-normal">Crear una nueva instancia</h2>
+    <hr>
+    <br>
+    <div class="mt-1 m-5">
+        <form>
+            <div>
+                <label>Origen</label>
+                <input type="text" placeholder="Lugar de origen" name="origen" class="form-control forma">
+                <div>
+                    <label>Destino</label>
+                    <input type="text" placeholder="Lugar de destino" name="destino" class="form-control forma">
+                </div>
+                <div>
+                    <label>Costo</label>
+                    <input type="number" placeholder="Costo del track" name="costo"  class="form-control forma">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
