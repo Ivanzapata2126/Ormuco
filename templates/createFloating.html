@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="page-header">
+    <h2 class="m-2 mt-3 fw-normal">Crear Floating IP</h2>
+    <hr>
+    <br>
+    <div class="mt-1 m-5">
+        <form action="/creatingFloating" method="post">
+            <div>
+                <label for="exampleDataList" class="form-label">Servidores</label>
+                <input class="form-control" list="images" id="exampleDataList" name="server" placeholder="Escribe o selecciona un servidor">
+                <datalist id="images">
+                    {%for line in value[0]%}
+                        <option value="{{line['name']}}">
+                    {% endfor %}
+                </datalist>
+                <div class="mt-2">
+                    <label for="exampleDataList" class="form-label">Floating IPS Disponibles</label>
+                    <input class="form-control" name="floating" list="floating" id="exampleDataList"
+                        placeholder="Escribe o selecciona una opción">
+                    <datalist id="floating">
+                        {%for line in value[1]%}
+                            {% if line['status'] == 'ACTIVE' %}
+                            <option value="{{line['floating_ip_address']}}">
+                            {% endif %}
+                        {% endfor %}
+                    </datalist>
+                </div>
+            <div class="pt-1 mb-4 mt-3 d-flex justify-content-center">
+                <button class="btn btn-dark btn-block" type="submit">Asignar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

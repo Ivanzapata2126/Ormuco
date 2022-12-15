@@ -9,6 +9,9 @@
         <a class="btn btn-secondary m-2" href="/create">
             Agregar nueva instancia
         </a>
+        <a class="btn btn-secondary m-2" href="/createFloating">
+            Agregar Floating IP
+        </a>
     </div>
 </div>
 
@@ -21,11 +24,13 @@
         </tr>
     </thead>
     <tbody>
+        {%for line in value%}
         <tr class="text-center">
-            <td scope="row">1e6a0827-f4d3-4b3a-879c-0530824e2522</td>
-            <td>jesusFromPython</td>
-            <td>ACTIVE</td>
+            <td scope="row">{{line['id']}}</td>
+            <td>{{line['name']}}</td>
+            <td>{{line['status']}}</td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 

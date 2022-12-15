@@ -5,18 +5,45 @@
     <hr>
     <br>
     <div class="mt-1 m-5">
-        <form>
+        <form action="/creating" method="post">
             <div>
-                <label>Origen</label>
-                <input type="text" placeholder="Lugar de origen" name="origen" class="form-control forma">
-                <div>
-                    <label>Destino</label>
-                    <input type="text" placeholder="Lugar de destino" name="destino" class="form-control forma">
+                <label for="name" class="form-label">Escribe el nombre del nuevo servidor</label>
+                <input class="form-control" placeholder="nuevo servidor_2022" id="name" name="name">
+                <label for="exampleDataList" class="form-label">Images</label>
+                <input class="form-control" list="images" id="exampleDataList" name="images" placeholder="Escribe o selecciona una opción">
+                <datalist id="images">
+                    {%for line in value[0]%}
+                        {% if line['os_version'] %}
+                        <option value="{{line['username']}} {{line['os_version']}}">
+                        {% else %}
+                        <option value="{{line['username']}}"></option>
+                        {% endif %}
+                    {% endfor %}
+
+                </datalist>
+                <div class="mt-2">
+                    <label for="exampleDataList" class="form-label">Flavors</label>
+                    <input class="form-control" name="flavors" list="flavors" id="exampleDataList"
+                        placeholder="Escribe o selecciona una opción">
+                    <datalist id="flavors">
+                        {%for line1 in value[1]%}
+                        <option value="{{line1['name']}} RAM: {{line1['ram']}} DISK: {{line1['disk']}}">
+                        {% endfor %}
+                    </datalist>
                 </div>
-                <div>
-                    <label>Costo</label>
-                    <input type="number" placeholder="Costo del track" name="costo"  class="form-control forma">
+                <div class="mt-2">
+                    <label for="exampleDataList" class="form-label">Network</label>
+                    <input class="form-control" name="network" list="network" id="exampleDataList"
+                        placeholder="Escribe o selecciona una opción">
+                    <datalist id="network">
+                        {%for line in value[2]%}
+                        <option value="{{line['name']}} {{line['status']}}">
+                        {% endfor %}
+                    </datalist>
                 </div>
+            </div>
+            <div class="pt-1 mb-4 mt-3 d-flex justify-content-center">
+                <button class="btn btn-dark btn-block" type="submit">Crear</button>
             </div>
         </form>
     </div>
